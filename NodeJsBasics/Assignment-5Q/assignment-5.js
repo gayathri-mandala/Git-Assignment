@@ -1,6 +1,4 @@
-//const shortUrl = require("node-url-shortener")
-const BitlyClient = require('bitly').BitlyClient;
-const bitly = new BitlyClient('<accessToken>');
+const shortUrl = require("node-url-shortener")
 const csvwriter = require('csv-writer')
 const fs = require('fs')
 
@@ -22,38 +20,38 @@ const csvWriter = createCsvWriter({
         {id:'new', title: 'NEW'}
     ]
 });
-// arr.forEach(ele=>{
-//     shortUrl.short(ele,(err,url)=>{
-//         let newdata = [{
-//             "old": ele,
-//             "new": url
-//         }]
-//         //console.log(newdata)
-//         csvWriter
-//         .writeRecords(newdata)
-//         .then(()=> console.log('Data added'));
-
-// })
-// })
-
-async function Shorten(url) {
-    let result;
-  try {
-    result = bitly.shorten(url);
-  } catch (e) {
-    console.log("error")
-  }
-  return result;
-}
-
 arr.forEach(ele=>{
-    const url = Shorten(ele)
-    let newdata = [{
-        "old": ele,
-        "new": url
-    }]
-    //console.log(newdata)
-    csvWriter
-    .writeRecords(newdata)
-    .then(()=> console.log('Data added'));
+    shortUrl.short(ele,(err,url)=>{
+        let newdata = [{
+            "old": ele,
+            "new": url
+        }]
+        //console.log(newdata)
+        csvWriter
+        .writeRecords(newdata)
+        .then(()=> console.log('Data added'));
+
 })
+})
+
+// async function Shorten(url) {
+//     let result;
+//   try {
+//     result = bitly.shorten(url);
+//   } catch (e) {
+//     console.log("error")
+//   }
+//   return result;
+// }
+
+// arr.forEach(ele=>{
+//     const url = Shorten(ele)
+//     let newdata = [{
+//         "old": ele,
+//         "new": url
+//     }]
+//     console.log(newdata)
+//     csvWriter
+//     .writeRecords(newdata)
+//     .then(()=> console.log('Data added'));
+// })
