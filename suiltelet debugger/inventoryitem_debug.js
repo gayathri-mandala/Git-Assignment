@@ -1,0 +1,12 @@
+var item = nlapiCreateRecord('inventoryitem');
+item.setFieldValue('itemid','Remote Toys');
+item.setFieldValue('displayname','Remote Toys');
+item.setFieldValue('subsidiary', '1');
+item.setFieldValue('includechildren','T');
+item.selectNewLineItem('itemvendor');
+item.setCurrentLineItemValue('itemvendor','vendor','44466');
+item.commitLineItem('itemvendor');
+item.setFieldValue('shippingcost', '3');
+item.setFieldValue('cost', '30');
+item.setFieldValue('weight','200');
+var itemid = nlapiSubmitRecord(item,true);

@@ -1,0 +1,21 @@
+var credit=nlapiCreateRecord('creditmemo');
+credit.setFieldValue('entity',44570);
+credit.setFieldValue('location',2);
+credit.selectLineItem('item','1');
+credit.setCurrentLineItemValue('item','item',6194);
+credit.setCurrentLineItemValue('item','quantity',10);
+credit.commitLineItem('item');
+credit.selectLineItem('item','2');
+credit.setCurrentLineItemValue('item','item',6195);
+credit.setCurrentLineItemValue('item','quantity',10);
+credit.commitLineItem('item');
+var creditid=nlapiSubmitRecord(credit,true);
+
+// var credit=nlapiCreateRecord('creditmemo');
+// credit.setFieldValue('entity',44570);
+// credit.setFieldValue('location',2);
+// credit.selectNewLineItem('item');
+// credit.setCurrentLineItemValue('item','item',6194);
+// credit.setCurrentLineItemValue('item','quantity',10);
+// credit.commitLineItem('item');
+// var creditid=nlapiSubmitRecord(credit,true);

@@ -1,0 +1,10 @@
+var returnauth =nlapiTransformRecord('salesorder',108734,'returnauthorization');
+returnauth.selectLineItem('item','1');
+returnauth.setCurrentLineItemValue('item','item','6194');
+returnauth.setCurrentLineItemValue('item','quantity','5');
+returnauth.commitLineItem('item');
+returnauth.selectLineItem('item','2');
+returnauth.setCurrentLineItemValue('item','item','6195');
+returnauth.setCurrentLineItemValue('item','quantity','5');
+returnauth.commitLineItem('item');
+var re_id=nlapiSubmitRecord(returnauth,true);

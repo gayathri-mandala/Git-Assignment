@@ -1,0 +1,11 @@
+var initvalues = new Array();
+initvalues.entity = 44570;
+var salesorder = nlapiCreateRecord('salesorder',initvalues);
+nlapiSelectNewLineItem('item');
+salesorder.insertLineItem('item',1);
+salesorder.setLineItemValue('item', 'item', 1, 6194);
+salesorder.setLineItemValue('item', 'quantity', 1, 10);
+salesorder.setLineItemValue('item','item',2,6195);
+salesorder.setLineItemValue('item', 'quantity',2,10);
+nlapiCommitLineItem('item');
+var id = nlapiSubmitRecord(salesorder);
